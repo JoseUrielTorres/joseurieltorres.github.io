@@ -371,6 +371,12 @@ button:active {
     background-color: white;
     max-height: 28px;
 }
+#resume-frame {
+    width: 510px;
+    height: 530px;
+    top: 10%;
+    left: 5%
+}
 #film-frame {
     width: 600px;
     height: 535px;
@@ -380,6 +386,10 @@ button:active {
 #daydreams-frame {
     top: 60%;
     left: 75%;
+}
+.resume-wrapper {
+    margin: 2px 4px -5px 4px;
+    position: relative;
 }
 .image-wrapper {
     margin: 2px 4px -5px 4px;
