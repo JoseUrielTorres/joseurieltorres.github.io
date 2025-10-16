@@ -121,7 +121,7 @@ strong {
     width: 50%;
 }
 .main-page-wrapper {
-    /* display: none; */
+    display: none;
     width: 100%;
     height: var(--app-height);
 }

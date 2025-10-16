@@ -21,6 +21,22 @@ playlists.forEach((playlist) => {
 	});
 });
 
+let header = document.getElementById("header");
+let everything = document.getElementById("everything");
+let introElm = document.getElementById("intro");
+let callback = function spaceStart(e) {
+	if (e.key == " " || e.code == "Space" || e.keyCode == 32) {
+		introElm.remove();
+		header.style.display = "flex";
+		everything.style.display = "block";
+		createVisualizer();
+		// currentTrack.play();
+		// isPlaying = true;
+		document.body.removeEventListener("keyup", callback);
+	}
+};
+document.body.addEventListener("keyup", callback);
+
 const closeIcons = document.querySelectorAll(".close-icon");
 closeIcons.forEach((icon) => {
 	icon.addEventListener("click", () => {
