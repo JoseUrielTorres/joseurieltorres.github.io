@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="stylesheets/stylesheet.css">
+    <!-- icon -->
+    <link rel="icon" href="assets/icons/fav.jpg">
+    <!-- title -->
+    <title>JaM Radio</title>
+</head>
+<body>
+
+    <header id="header">
+        <span style="border: none;"class="item">JaM Desktop</span>
+        <div class="right-nav">
+            <span class="volume-icon">
+                <div id="volume-click" class="item">
+                    <img id="volume-indicator" src="assets/icons/volume.png" alt="oop">
+                </div>
+                <ul class="slider">
+                    <li>
+                        <input type="range" min="0" max="100" value="100" class="volume-slider" onchange="setVolume()">
+                    </li>
+                </ul>
+            </span>
+            <span id="clock" class="item"></span>
+            <span id="date" class="item"></span>
+        </div>
+    </header>
+    <!-- <div id="intro">
+        <span id="firstP"></span>
+        <p id="secondP">- j</p>
+        <p id="press">PRESS SPACE TO ENTER</p>
+    </div> -->
+    <div id="everything" class="main-page-wrapper">
+        <!-- icons -->
+        <div class="section-icons">
+            <ul>
+                <!-- love letter -->
+                <li id="love-letter">
+                    <div>
+                        <div class="desktop-icon">
+                            <img src="assets/icons/closed_envolope.png" alt="oops">
+                        </div>
+                        <span style="padding-left: 4px">inbox</span>
+                    </div>
+                </li>
+                <li id="daydreams">
+                    <div>
+                        <div class="desktop-icon">
+                            <img style="height: 32px;" src="assets/icons/user.png" alt="oops">
+                        </div>
+                        <span style="padding-left: 5px;">user</span>
+                    </div>
+                </li>
+                <li id="film">
+                    <div style="text-align: center;">
+                        <div class="desktop-icon">
+                            <img src="assets/icons/camera.png" alt="oops">
+                        </div>
+                        <span>film</span>
+                    </div>
+                </li>
+                <li id="player">
+                    <div>
+                        <div class="desktop-icon">
+                            <img src="assets/icons/cd.png" alt="oops">
+                        </div>
+                        <span>JaM Radio</span>
+                    </div>
+                </li>
+                <li id="album">
+                    <div>
+                        <div class="desktop-icon">
+                            <img style="height: 42px;" src="assets/icons/album.png" alt="oops">
+                        </div>
+                        <span>album art</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- big frame -->
+        <div id="film-frame" class="global-item draggable">
+            <div id="big-frameheader" class="drag-header">
+                <span class="close-icon"></span>
+                <span class="spacer">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </span>
+            </div>
+            <div class="inner-wrapper">
+                <div class="image-wrapper">
+                    <img id="film-pic" class="big-pic" src="assets/scenery/tulips.JPG" alt="oops">
+                    <div class="next-bar">
+                        <span id="film-prev" class="prev-image">prev file</span>
+                        <span id="film-next" class="next-image">next file</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- love letter frame -->
+        <div id="love-letter-frame" class="global-item draggable">
+            <div id="love-letterheader" class="drag-header">
+                <span class="close-icon"></span>
+                <span class="spacer">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </span>
+            </div>
+            <div class="inner-wrapper">
+                <div class="email-format">
+                    <ul>
+                        <li style="padding-top: 4px;">to: </li>
+                        <li>from: </li>
+                        <li style="margin-bottom: 0;">subject: </li>
+                    </ul>
+                    <ul class="email-fields">
+                        <li>world@jamq.fm</li>
+                        <li>jose.uriel.torres5@gmail.com</li>
+                        <li style="margin-bottom: 0;">who am i?</li>
+                    </ul>
+                </div>
+                <div class="text-wrapper">
+                    hello world<br><br> this is my personal website. i use it to showcase my resume but i mainly use it as an avenue for people to learn about who i am. i hope you get to know a bit of my personality from my film photos and playlists.<br><br> professionally i come from a variety of spaces but i am currently focusing on a career in artificial intelligence. i mainly have a background in software development but i am currently working as an electrcian. i find to be a good fit in places where i can work on difficult problems. so if you can help me find my next challenge, feel free to connect with me. <br><br>- jose uriel torres
+                </div>
+            </div>
+        </div>
+        <!-- small frame -->
+        <div id="daydreams-frame" class="global-item draggable">
+            <div id="small-frameheader" class="drag-header">
+                <span class="close-icon"></span>
+                <span class="spacer">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </span>
+            </div>
+            <div class="inner-wrapper">
+                <div class="image-wrapper bottom-margins">
+                    <img id="daydreams-pic" class="small-pic" src="assets/me/proProfile.jpg" alt="oops">
+                    <div class="next-bar">
+                        <span id="daydreams-prev" class="prev-image">prev file</span>
+                        <span id="daydreams-next" class="next-image">next file</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- album cover -->
+        <div id="album-frame" class="global-item draggable">
+            <div id="album-frameheader" class="drag-header">
+                <span class="close-icon"></span>
+                <span class="spacer">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </span>
+            </div>
+            <div class="inner-wrapper">
+                <div class="image-wrapper bottom-margins">
+                    <img id="album-cover" alt="oops">
+                </div>
+            </div>
+        </div>
+        <!-- music player -->
+        <div id="player-frame" class="global-item draggable">
+            <div id="playerheader" class="drag-header">
+                <span class="close-icon"></span>
+                <span class="spacer">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </span>
+                <h2>JaM Radio</h2>
+            </div>
+            <div class="inner-wrapper">
+                <div class="inner-size">
+                    <div id="bars-wrapper">
+                        <div class="visualizer-container"></div>
+                    </div>
+                    <div id="select-relative" class="select-relative">
+                        <div class="select-wrapper">
+                            <strong>Playlist:</strong>
+                            <span id="displayPlaylist">JaM Queue</span>
+                        </div>
+                        <div id="select-list" class="select-options-scroll">
+                            <ul class="playlists">
+                                <li id="jqPlaylist">JaM Queue</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="current-track">
+                        <div id="trackTime" class="timer">
+                            <span id="currTime">...</span>
+                             / 
+                            <span id="totalTime">...</span>
+                        </div>
+                        <h3 id="titleTrack">Loading ...</h3>
+                        <h2 id="artistName">We'll be right back</h2>
+                    </div>
+                    <div id="control-wrapper" class="flex">
+                        <button id="prev" class="previous">
+                            <span>Previous</span>
+                        </button>
+                        <button id="play-pause" class="play-pause paused">
+                            <span>Play</span>
+                        </button>
+                        <button id="next" class="next">
+                            <span>Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script src="js/playlists.js"></script>
+<script src="js/clock.js"></script>
+<script src="js/drag.js"></script>
+<script src="js/player.js"></script>
+<script src="js/visualizer.js"></script>
+<script>createVisualizer();</script>
+<script src="js/daydreams.js"></script>
+<script src="js/listeners.js"></script>
+</html>
